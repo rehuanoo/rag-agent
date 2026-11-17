@@ -1,0 +1,190 @@
+{
+  "summary": {
+    "cases": 12,
+    "route_accuracy": 1.0,
+    "tool_exact_match": 0.8333333333333334,
+    "tool_recall": 1.0,
+    "tool_precision": 0.9166666666666666,
+    "avg_latency": 3.840873074999763
+  },
+  "details": [
+    {
+      "question": "P0 工单多久响应？",
+      "expected_route": "knowledge",
+      "actual_route": "knowledge",
+      "expected_tools": [],
+      "actual_tools": [],
+      "route_ok": true,
+      "tool_exact": true,
+      "tool_recall": 1.0,
+      "tool_precision": 1.0,
+      "latency": 6.743646800001443,
+      "answer": "**结论：P0 工单须在 15 分钟内响应，4 小时内解决（恢复）。**\n\n说明：P0 指系统不可用、数据丢失、安全事件；P0 提供 7×24 小时支持 [1][4]。P0 故障超过 2 小时未恢复的，须通知客户成功总监和研发负责人 [2]。"
+    },
+    {
+      "question": "年假有多少天？",
+      "expected_route": "knowledge",
+      "actual_route": "knowledge",
+      "expected_tools": [],
+      "actual_tools": [],
+      "route_ok": true,
+      "tool_exact": true,
+      "tool_recall": 1.0,
+      "tool_precision": 1.0,
+      "latency": 3.0158330999984173,
+      "answer": "年假天数按工龄计算：满 1 年 5 天，满 3 年 7 天，满 5 年 10 天，满 10 年 15 天 [1][2][3]。\n\n补充：年假以 0.5 天为最小单位；当年未休年假可延期至次年 3 月 31 日，逾期作废 [3]。"
+    },
+    {
+      "question": "报销发票抬头和税号是什么？",
+      "expected_route": "knowledge",
+      "actual_route": "knowledge",
+      "expected_tools": [],
+      "actual_tools": [],
+      "route_ok": true,
+      "tool_exact": true,
+      "tool_recall": 1.0,
+      "tool_precision": 1.0,
+      "latency": 3.094854699997086,
+      "answer": "发票抬头为“星澜智能科技有限公司”，税号 91330100MA2K7X8Y9Z [1][2]。\n\n补充说明：个人抬头的发票不予报销 [1]。"
+    },
+    {
+      "question": "帮我算一下去北京出差 5 天的预算",
+      "expected_route": "tools",
+      "actual_route": "tools",
+      "expected_tools": [
+        "travel_budget"
+      ],
+      "actual_tools": [
+        "knowledge_search",
+        "travel_budget"
+      ],
+      "route_ok": true,
+      "tool_exact": false,
+      "tool_recall": 1.0,
+      "tool_precision": 0.5,
+      "latency": 4.10939480000161,
+      "answer": "北京属于一线城市，出差 5 天的预算如下：\n\n| 项目 | 标准 | 计算 | 金额 |\n|---|---|---|---|\n| 住宿 | 600 元/晚（一线城市） | 600 × 4 晚 | 2400 元 |\n| 出差补贴 | 120 元/天（一线城市） | 120 × 5 天 | 600 元 |\n| **合计** | | | **3000 元** |\n\n说明：\n- 住宿按 4 晚估算，也就是出差天数减 1；住宿费含税，超出 600 元/晚的部分需要个人承担。依据为《差旅报销管理办法》· 住宿标准。\n- 补贴包含餐费和市内杂费，不再单独报销餐饮发票；当天往返且出差时长不足 6 小时的，不发放补贴。依据为《差旅报销管理办法》· 出差补贴。\n- 同性别同事同行原则上合住。\n\n以上不含城际交通费（机票、高铁），如需一并估算，请告诉我出发城市。"
+    },
+    {
+      "question": "张伟的工号是多少？",
+      "expected_route": "tools",
+      "actual_route": "tools",
+      "expected_tools": [
+        "lookup_employee"
+      ],
+      "actual_tools": [
+        "lookup_employee"
+      ],
+      "route_ok": true,
+      "tool_exact": true,
+      "tool_recall": 1.0,
+      "tool_precision": 1.0,
+      "latency": 2.714798699998937,
+      "answer": "张伟的工号是 **E1024**。\n\n- 部门：研发中心 / 后端组\n- 职位：高级后端工程师\n- 直属主管：李娜\n- 办公地点：杭州总部 8F\n\n如果公司内有同名员工，请提供更多信息（如部门），我可以再帮你确认。"
+    },
+    {
+      "question": "知识库里有多少个切片？",
+      "expected_route": "tools",
+      "actual_route": "tools",
+      "expected_tools": [
+        "knowledge_base_stats"
+      ],
+      "actual_tools": [
+        "knowledge_base_stats"
+      ],
+      "route_ok": true,
+      "tool_exact": true,
+      "tool_recall": 1.0,
+      "tool_precision": 1.0,
+      "latency": 2.68641690000004,
+      "answer": "当前知识库共有 **80 个切片**，具体构成如下：\n\n- 文档数量：15 篇\n- 切片数量：80 个\n- 向量模型：bge-large-zh-v1.5\n- 向量库：FAISS\n- 元数据存储：SQLite"
+    },
+    {
+      "question": "你好，你能做什么？",
+      "expected_route": "direct",
+      "actual_route": "direct",
+      "expected_tools": [],
+      "actual_tools": [],
+      "route_ok": true,
+      "tool_exact": true,
+      "tool_recall": 1.0,
+      "tool_precision": 1.0,
+      "latency": 1.7781408999981068,
+      "answer": "你好！我是星澜科技的企业知识库助手，可以帮你：\n\n- **查制度**：公司规章、考勤、报销、假期等政策\n- **查产品**：产品功能、规格、常见问题\n- **查流程**：各类审批、操作指引\n- **查 FAQ**：常见疑问解答\n- **算差旅预算**：根据目的地和标准估算费用\n- **查员工信息**：内部人员与部门信息\n- **看知识库统计**：文档数量、分类等概况\n\n需要了解哪方面，直接问我就好～"
+    },
+    {
+      "question": "深圳出差 2 天，住宿和补贴大概多少？",
+      "expected_route": "tools",
+      "actual_route": "tools",
+      "expected_tools": [
+        "travel_budget"
+      ],
+      "actual_tools": [
+        "knowledge_search",
+        "travel_budget"
+      ],
+      "route_ok": true,
+      "tool_exact": false,
+      "tool_recall": 1.0,
+      "tool_precision": 0.5,
+      "latency": 4.248859499999526,
+      "answer": "深圳属于一线城市，2 天出差预算如下：\n\n| 项目 | 标准 | 金额 |\n|---|---|---|\n| 住宿 | 600 元/晚 × 1 晚 | 600 元 |\n| 出差补贴 | 120 元/天 × 2 天 | 240 元 |\n| **合计** | | **840 元** |\n\n说明：\n- 住宿按“出差天数减 1”估算，即 1 晚；超出标准部分由个人承担，同性别同事同行原则上合住。（《差旅报销管理办法》/ 住宿标准）\n- 补贴含餐费和市内杂费，不再单独报销餐饮发票；若当天往返且出差不足 6 小时，不发补贴。（《差旅报销管理办法》/ 出差补贴）\n\n需要我按你的实际出差天数或城市级别重新算吗？"
+    },
+    {
+      "question": "私有化部署最低配置是什么？",
+      "expected_route": "knowledge",
+      "actual_route": "knowledge",
+      "expected_tools": [],
+      "actual_tools": [],
+      "route_ok": true,
+      "tool_exact": true,
+      "tool_recall": 1.0,
+      "tool_precision": 1.0,
+      "latency": 4.749417700000777,
+      "answer": "**结论：** 若指智能客服平台，私有化部署最低配置为 **3 个节点，每节点 8 核 32GB 内存、500GB SSD**，实施周期 **6 至 8 周** [1][3]；同时支持麒麟操作系统和达梦数据库 [1]。\n\n**补充说明：** 若指数据中台，其最低配置为 **3 台 16 核 64GB 服务器，存储不少于 10TB** [2]。两者属于不同产品，配置要求不同。"
+    },
+    {
+      "question": "周敏是哪个部门的？",
+      "expected_route": "tools",
+      "actual_route": "tools",
+      "expected_tools": [
+        "lookup_employee"
+      ],
+      "actual_tools": [
+        "lookup_employee"
+      ],
+      "route_ok": true,
+      "tool_exact": true,
+      "tool_recall": 1.0,
+      "tool_precision": 1.0,
+      "latency": 2.5972714999988966,
+      "answer": "周敏在**客户成功部**，担任部门总监。\n\n- 工号：E2001\n- 直属主管：COO 赵磊\n- 办公地点：深圳分部 12F"
+    },
+    {
+      "question": "谢谢，再见",
+      "expected_route": "direct",
+      "actual_route": "direct",
+      "expected_tools": [],
+      "actual_tools": [],
+      "route_ok": true,
+      "tool_exact": true,
+      "tool_recall": 1.0,
+      "tool_precision": 1.0,
+      "latency": 2.4078157000003557,
+      "answer": "不客气！很高兴能帮到你 😊 如果之后还有制度、流程、产品或差旅预算方面的问题，随时来找我。祝你工作顺利，再见！"
+    },
+    {
+      "question": "公司有没有班车？",
+      "expected_route": "knowledge",
+      "actual_route": "knowledge",
+      "expected_tools": [],
+      "actual_tools": [],
+      "route_ok": true,
+      "tool_exact": true,
+      "tool_recall": 1.0,
+      "tool_precision": 1.0,
+      "latency": 7.944026600001962,
+      "answer": "知识库中没有找到足够的依据来回答这个问题。\n\n原因：资料未提及班车情况"
+    }
+  ]
+}
